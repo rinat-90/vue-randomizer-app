@@ -11,7 +11,7 @@
         <v-chip 
           v-for="item in team" 
           :key="item.name"
-          :color="colors[index]"
+          :color="item.team"
           draggable
           dark
           class="ml-4">
@@ -24,6 +24,7 @@
 
 <script>
 export default {
-  props:['teams', 'colors']
+  name: 'Team',
+  props:['teams']
 }
 </script>
