@@ -15,15 +15,14 @@
 
 <script>
 export default {
-   props:['players'],
-   data(){
-      return{
-
+   computed:{
+      players(){
+         return this.$store.getters.GET_PLAYERS;
       }
    },
    methods:{
       onDelete(player){
-         this.$emit('on-delete', player)
+         this.$store.dispatch('REMOVE_PLAYER', player)
       }
    }
 }

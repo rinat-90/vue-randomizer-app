@@ -1,4 +1,4 @@
-<template>
+<template v-if="teams">
   <div>
     <v-card 
       v-for="(team, index) in teams" 
@@ -14,17 +14,20 @@
           :color="item.team"
           draggable
           dark
-          class="ml-4">
+          class="ml-4 mb-3">
           {{ item.name }}
         </v-chip>   
       </v-card-text>  
     </v-card> 
   </div>
 </template>
-
 <script>
 export default {
   name: 'Team',
-  props:['teams']
+  computed:{
+    teams(){
+      return this.$store.getters.GET_TEAMS;
+    }
+  }
 }
 </script>

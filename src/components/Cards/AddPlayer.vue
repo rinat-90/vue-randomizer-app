@@ -23,9 +23,10 @@
       methods:{
          onPlayerAdd(){
             if(this.player.name !== ''){
-               this.$emit('on-player-add', {...this.player})
+               this.$store.dispatch('ADD_PLAYER', {...this.player})
             }
             this.player.name = ''
+            this.player.team = ''
          }
       }
    }
