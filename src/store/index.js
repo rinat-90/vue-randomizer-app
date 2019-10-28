@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
    state:{
       user: null,
-      colors: ['green', 'red', 'orange', 'black', 'purple', 'teal'],
+      colors: ['green', 'red', 'orange', 'black', 'purple', 'teal', 'brown', 'blue-grey', 'lime', 'cyan', 'indigo'],
       players:[
          { name: 'Ronaldo', team: '' },
          { name: 'Messi', team: '' },
@@ -32,6 +32,9 @@ export const store = new Vuex.Store({
       },
       GENERATE_TEAMS(state, payload){
          state.teams = payload
+      },
+      UPDATE_TEAMS(state, payload){
+         state.teams = payload
       }
    },
    actions:{
@@ -47,6 +50,9 @@ export const store = new Vuex.Store({
       GENERATE_TEAMS({ commit, state }, payload){
          const teams = generateTeams(payload, state);
          commit('GENERATE_TEAMS', teams);
+      },
+      UPDATE_TEAMS({ commit }, payload){
+         commit('UPDATE_TEAMS',payload);
       }
    },
    getters:{
@@ -55,6 +61,15 @@ export const store = new Vuex.Store({
       },
       GET_TEAMS(state){
          return state.teams
-      }
+      },
+      GET_COLORS(state){
+         return state.colors
+      },
+      GET_PLAYERS_COUNT(state){
+         return state.players.length
+      },
+      GET_TEAMS_COUNT(state){
+         return state.teams.length
+      },
    }
 }) 

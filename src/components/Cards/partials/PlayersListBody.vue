@@ -1,5 +1,6 @@
 <template>
    <v-card-text class="py-5">
+      <div class="ml-5" v-if="!players.length">Add players to the list</div>
       <v-chip 
       v-for="player in players" 
       :key="player.name"

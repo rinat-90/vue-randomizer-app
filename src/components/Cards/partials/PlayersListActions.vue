@@ -13,9 +13,10 @@
    <v-btn 
       @click="onRandomize()"
       :disabled="isDisabled" 
-      color="green"
+      color="success"
       class="mx-3 text--white"
       small 
+      dark
       >
       randomize</v-btn>
       <v-btn text @click="onReset()">reset</v-btn>
@@ -30,17 +31,17 @@
             totalTeams: 2,
             teamRules:[ 
                v => !!v || 'Name is required', 
-               v => (v && parseInt(v)) <= this.$store.getters.GET_PLAYERS.length || 'Value is too big',
+               v => (v && parseInt(v)) <= this.$store.getters.GET_PLAYERS_COUNT || 'Value is too big',
                v => (v && parseInt(v)) >= 2 || 'Value is too low'
             ],
          }
       },
       computed:{
          isDisabled(){
-            return this.$store.getters.GET_PLAYERS.length < 2 ? true: false
+            return this.$store.getters.GET_PLAYERS_COUNT < 2 ? true : false
          },
          maxTeams(){
-            return this.$store.getters.GET_PLAYERS.length > 2 ? this.$store.getters.GET_PLAYERS.length : 2
+            return this.$store.getters.GET_PLAYERS_COUNT > 2 ? this.$store.getters.GET_PLAYERS_COUNT : 2
          },
       },
       methods:{
