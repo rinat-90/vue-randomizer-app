@@ -6,14 +6,13 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
    state:{
       user: null,
-      colors: ['green', 'red', 'orange', 'black', 'purple', 'teal', 'brown', 'blue-grey', 'lime', 'cyan', 'indigo'],
+      colors: ['green', 'red', 'orange', 'black', 'purple', 'teal', 'brown', 'lime', 'cyan', 'indigo', 'blue-grey'],
       players:[
-         { name: 'Ronaldo', team: '' },
-         { name: 'Messi', team: '' },
-         { name: 'Ozil', team: '' },
-         { name: 'Salah', team: '' },
-         { name: 'Dybala', team: '' },
-         { name: 'Bufon', team: '' },
+         {name: 'Ronaldo', team: ''},
+         {name: 'Dybala', team: ''},
+         {name: 'Messi', team: ''},
+         {name: 'Sandro', team: ''},
+         {name: 'Salah', team: ''},
       ],
       teams: [],
       loading: false,
@@ -24,7 +23,11 @@ export const store = new Vuex.Store({
          state.players.push(payload)
       },
       REMOVE_PLAYER(state, payload){
-         state.players = state.players.filter(item => item.name !== payload.name)
+         state.players = payload[0]
+         state.teams = payload[1]
+      },
+      REMOVE_PLAYER_FROM_TEAM(state, payload){
+         state.teams = payload
       },
       RESET_LIST(state){
          state.players = []
@@ -41,8 +44,12 @@ export const store = new Vuex.Store({
       ADD_PLAYER({ commit }, payload){
          commit('ADD_PLAYER', payload)
       },
-      REMOVE_PLAYER({ commit }, payload){
-         commit('REMOVE_PLAYER', payload);
+      REMOVE_PLAYER({ commit, state }, payload){
+         const players = state.players.filter(item => item.name !== payload.name)
+         const teams = state.teams.map(list => {
+            return list.filter(item => item.name !== payload.name);
+         });
+         commit('REMOVE_PLAYER', [players,teams]);
       },
       RESET_LIST({ commit }){
          commit('RESET_LIST')

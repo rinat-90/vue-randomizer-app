@@ -15,11 +15,9 @@
       :disabled="isDisabled" 
       color="success"
       class="mx-3 text--white"
-      small 
-      dark
-      >
-      randomize</v-btn>
-      <v-btn text @click="onReset()">reset</v-btn>
+      small >
+      generate</v-btn>
+      <v-btn small @click="onReset()" :disabled="isDisabled">reset</v-btn>
 </v-card-actions>
 </template>
 
@@ -38,10 +36,10 @@
       },
       computed:{
          isDisabled(){
-            return this.$store.getters.GET_PLAYERS_COUNT < 2 ? true : false
+            return this.$store.getters.GET_PLAYERS_COUNT < 2 
          },
          maxTeams(){
-            return this.$store.getters.GET_PLAYERS_COUNT > 2 ? this.$store.getters.GET_PLAYERS_COUNT : 2
+            return this.$store.getters.GET_PLAYERS_COUNT > 2 || 2
          },
       },
       methods:{

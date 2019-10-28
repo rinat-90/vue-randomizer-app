@@ -13,9 +13,9 @@ export default function(totalTeams, state){
          arr.splice(arr.indexOf(randomPlayer), 1);
       }
    }
-   //adding left item to teams array
+   //adding leftover items to teams array
    if(arr.length){
-      for(var k = 0; k < arr.length; k++){
+      for(let k = 0; k < arr.length; k++){
          arr[k].team = state.colors[k] 
          teams[k].push(arr[k])
       }

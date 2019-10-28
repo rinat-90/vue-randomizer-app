@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <v-container fluid class="pa-10">
+      <v-container fluid class="">
         <v-layout align-content-center justify-center>
           <v-flex xs12 md8>
             <!-- Add player top card component -->
