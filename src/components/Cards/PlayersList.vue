@@ -1,5 +1,5 @@
 <template>
-   <v-card class="pa-6 mb-6">
+   <v-card class="pa-4 mb-4">
       <card-title></card-title>
       <card-body></card-body>
       <v-divider class="mb-3"></v-divider>

@@ -1,5 +1,5 @@
 <template>
-   <v-card class="pa-6 mb-6">
+   <v-card class="pa-4 mb-4">
       <v-text-field 
          v-model="player.name" 
          :append-outer-icon="'mdi-plus'"
