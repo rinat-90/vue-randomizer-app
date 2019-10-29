@@ -1,5 +1,10 @@
 # vue-randomizer-app
 
+simple vue app that generate teams choosing random item from array
+
+DEMO: https://vue-randomizer-app-9jk7oywgn.now.sh/
+
+
 ## Project setup
 ```
 npm install
